@@ -8,3 +8,6 @@ for k_d1, v_d1 in d1.items():
 for k_d2, v_d2 in d2.items():
     sums_elements[k_d2] += v_d2
 print(dict(sums_elements))
+sums_elements = Counter(d1)
+sums_elements.update(d2)
+print(dict(sums_elements))
