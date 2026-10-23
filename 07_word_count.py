@@ -6,8 +6,8 @@ text = "кот пёс кот мышь пёс кот"
 c = Counter(text.split(" "))
 print(dict(c)) # решенно через Counter
 
-dictint = defaultdict(int)
+counts = defaultdict(int)
 
-for i in text.split(" "):
-    dictint[i] += 1
-print(dict(dictint)) # решенно через defaultdict(int)
+for word in text.split(" "):
+    counts[word] += 1
+print(dict(counts)) # решенно через defaultdict(int)
