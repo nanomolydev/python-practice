@@ -25,6 +25,8 @@ with Box("a") as b:
     print("inside", b.name)
 print("after 1")
 
+# open a / inside, a / close a / after 1
+
 # Пример 2
 try:
     with Box("b"):
@@ -34,6 +36,7 @@ try:
 except ZeroDivisionError:
     print("caught")
 
+# open b / start / close b / caught
 
 # Пример 3
 class Silent(Box):
@@ -45,11 +48,15 @@ with Silent("c"):
     raise ValueError("boom")
 print("after 3")
 
+# open c / ValueError boom / close c / after 3
+
 
 # Пример 4: файл. Что напечатает последняя строка?
 with open("tmp_33.txt", "w") as f:
     f.write("hi")
 print(f.closed)
+
+# True
 
 
 # Ответы ниже, не листай заранее.
@@ -76,3 +83,16 @@ print(f.closed)
 # 3: open c / close c / after 3
 #    __exit__ вернул True, ValueError проглочен, программа идёт дальше.
 # 4: True. with сам закрыл файл, хотя мы не писали f.close().
+
+# inside, a
+# after 1
+# start
+# caught
+# close c
+# ValueError boom
+# after 3
+# True
+
+# open a / inside, a / close a / after 1
+# open b / start / close b / caught
+# open c / ValueError boom / close c / after 3
