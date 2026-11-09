@@ -30,27 +30,39 @@ def discount(price, percent):
 def test_no_discount():
     assert discount(200, 0) == 200
 
+# PASSED
+
 
 def test_half():
     assert discount(200, 50) == 100
 
+# PASSED
+
 
 def test_ten_percent():
     assert discount(99, 10) == 89.1
+
+# PASSED
 
 
 def test_bad_percent():
     with pytest.raises(ValueError):
         discount(100, 150)
 
+# PASSED
+
 
 def test_bad_percent_wrong():
     with pytest.raises(ValueError):
         discount(100, 100)
 
+# FAILED
+
 
 def helper_check():
     assert discount(100, 10) == 1
+
+# FAILED
 
 
 # Ответы ниже, не листай заранее.
