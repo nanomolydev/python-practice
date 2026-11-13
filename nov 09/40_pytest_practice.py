@@ -35,8 +35,12 @@ def test_space_delete():
 
 def test_string_error():
     with pytest.raises(ValueError):
-        assert parse_age("abc")
+        parse_age("abc")
 
 def test_negative_number():
     with pytest.raises(ValueError):
-        assert parse_age("-5")
+        parse_age("-5")
+
+def test_five_hundred():
+     with pytest.raises(ValueError):
+        parse_age("500")
